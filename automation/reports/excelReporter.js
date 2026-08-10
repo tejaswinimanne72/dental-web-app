@@ -151,9 +151,10 @@ class EnterpriseExcelReporter {
 
     sheet.getRow(1).font = { bold: true, color: { argb: 'FFFFFF' } };
     sheet.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: '0F172A' } };
+    sheet.getRow(1).alignment = { vertical: 'middle', horizontal: 'center' };
 
     if (cases.length === 0) {
-      sheet.addRow(['N/A', 'N/A', 'No cases for this filter', 'Info', 'NONE', 0, 'N/A', 'N/A']);
+      sheet.addRow(['N/A', 'All Modules', 'No cases for this filter', 'Info', 'NONE', 0, 'N/A', 'N/A']);
     } else {
       cases.forEach(c => {
         const row = sheet.addRow([
