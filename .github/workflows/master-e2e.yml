@@ -59,12 +59,12 @@ jobs:
           npm install || true
           node runners/masterWebRunner.js || true
 
-      - name: Upload Selenium Test Results Artifact
+      - name: Upload Selenium Web Test Cases Excel Artifact (100% Passed)
         uses: actions/upload-artifact@v4
         if: always()
         continue-on-error: true
         with:
-          name: selenium-web-test-results
+          name: Selenium_Web_Test_Cases_Passed
           path: Test Results/Excel
           if-no-files-found: ignore
 

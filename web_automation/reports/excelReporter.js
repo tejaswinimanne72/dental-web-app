@@ -13,6 +13,7 @@ class WebExcelReporter {
   async generateAllExcelReports(testResults, summaryMetrics = {}) {
     await this.generateMainWorkbook(testResults, summaryMetrics);
     await this.generateSingleStatusWorkbook(testResults.filter(r => r.status === 'PASS'), 'Passed_Test_Cases.xlsx');
+    await this.generateSingleStatusWorkbook(testResults.filter(r => r.status === 'PASS'), 'Selenium_Web_Test_Cases_Passed.xlsx');
     await this.generateSingleStatusWorkbook(testResults.filter(r => r.status === 'FAIL'), 'Failed_Test_Cases.xlsx');
     await this.generateSummaryReportWorkbook(testResults, summaryMetrics);
 
@@ -133,7 +134,7 @@ class WebExcelReporter {
       { header: 'Status', key: 'status', width: 15 }
     ];
     sheet.getRow(1).font = { bold: true, color: { argb: 'FFFFFF' } };
-    sheet.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: '0F172A' } };
+    sheet.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: '15803D' } };
 
     if (cases.length === 0) {
       sheet.addRow(['N/A', 'All Modules', 'No cases for this filter', 'NONE']);
